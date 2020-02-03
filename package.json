@@ -1,4 +1,5 @@
 {
+  "homepage": "https://bing-deng.github.io/new-md-backend",
   "name": "ant-design-pro",
   "version": "1.0.0",
   "private": true,
@@ -6,7 +7,6 @@
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build",
-    "deploy": "npm run site && npm run gh-pages",
     "fetch:blocks": "pro fetch-blocks && npm run prettier",
     "format-imports": "cross-env import-sort --write '**/*.{js,jsx,ts,tsx}'",
     "gh-pages": "cp CNAME ./dist/ && gh-pages -d dist",
@@ -25,7 +25,9 @@
     "test": "umi test",
     "test:all": "node ./tests/run-tests.js",
     "test:component": "umi test ./src/components",
-    "ui": "umi ui"
+    "ui": "umi ui",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "husky": {
     "hooks": {
@@ -90,7 +92,7 @@
     "enzyme": "^3.9.0",
     "eslint": "5.16.0",
     "express": "^4.17.1",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.2.0",
     "husky": "^3.0.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
